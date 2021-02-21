@@ -13,26 +13,17 @@
                     {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
                 </a>
 
-                <ul class="site-title social-icons">
-                    <li>
-                        <a class="btn-github" href="https://github.com/{{site.github_username}}"
-                           title="Github" target="_blank">
-                            <i class="fab fa-fw fa-github"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-twitter" href="https://twitter.com/{{site.twitter.username}}"
-                           title="Twitter" target="_blank">
-                            <i class="fab fa-fw fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="btn-youtube" href="https://www.youtube.com/playlist?list=PLyRtZQwOxA6ekhEr2H2nNV42ZLD8OkPEx"
-                           title="Youtube" target="_blank">
-                            <i class="fab fa-fw fa-youtube"></i>
-                        </a>
-                    </li>
-                </ul>
+                <div>
+                    <ul class="site-title social-icons">
+                        {%- for social in site.data.navigation.social -%}
+                        <li class="btn-{{ social.title | downcase }}">
+                            <a href="{{ social.url }}" target="_blank" title="{{ social.title }}">
+                                <i class="fab fa-fw fa-{{ social.title | downcase }}"></i>
+                            </a>
+                        </li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
 
                 <ul class="visible-links">
                     {%- for link in site.data.navigation.main -%}

@@ -7,3 +7,11 @@ main:
     url: /community/
   - title: "Blog"
     url: /blog/
+
+social:
+  - title: "Twitter"
+    url: https://twitter.com/QuickPerf
+  - title: "Github"
+    url: https://github.com/quick-perf
+  - title: "Youtube"
+    url: https://www.youtube.com/playlist?list=PLyRtZQwOxA6ekhEr2H2nNV42ZLD8OkPEx

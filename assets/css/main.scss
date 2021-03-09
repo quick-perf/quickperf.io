@@ -1,0 +1,124 @@
+---
+# main.scss
+---
+
+@charset "utf-8";
+@media (prefers-color-scheme: dark) {
+    html {
+      content: "dark";
+    }
+}
+/* Theme overrides */
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #51555D;
+}
+
+input:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+input:checked + .slider::after {
+  position: relative;
+  content:"I";
+  font-size:20px;
+  left:13px;
+  bottom:2px;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.slider::after {
+  position:relative;
+  right:-38px;
+  bottom:4px;
+  color: white;
+  content: "o";
+}
+
+html[data-theme="light"], {
+    @import "minimal-mistakes";
+}
+
+html[data-theme='dark'] {
+    $background-color: #252a34;
+    $text-color: #eaeaea;
+    $primary-color: #00adb5;
+    $border-color: mix(#000, $background-color, 20%) ;
+    $code-background-color: mix(#000, $background-color, 15%) ;
+    $form-background-color: mix(#000, $background-color, 15%) ;
+    $footer-background-color: mix(#000, $background-color, 30%) ;
+    $link-color: mix($primary-color, $text-color, 40%) ;
+    $link-color-hover: mix(#fff, $link-color, 25%) ;
+    $link-color-visited: mix(#000, $link-color, 25%) ;
+    $masthead-link-color: $text-color ;
+    $masthead-link-color-hover: mix(#000, $text-color, 20%) ;
+    $navicon-link-color-hover: mix(#000, $background-color, 30%) ;
+
+    .author__urls.social-icons i,
+    .author__urls.social-icons .svg-inline--fa,
+    .page__footer-follow .social-icons i,
+    .page__footer-follow .social-icons .svg-inline--fa  {
+      color: inherit;
+    }
+
+    .btn-github {
+        filter: invert(1);
+    }
+
+    .ais-search-box .ais-search-box--input {
+      background-color: $form-background-color;
+    }
+    background-color: $background-color;
+
+    @import "minimal-mistakes";
+}
+
+@import "minimal-mistakes";
+

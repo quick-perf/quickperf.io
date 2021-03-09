@@ -1,5 +1,13 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
-
+<script>
+    const theme = localStorage.getItem('theme');
+	if (theme === "dark") {
+		document.documentElement.setAttribute('data-theme', 'dark');
+	} else
+	{
+		document.documentElement.setAttribute('data-theme', 'light');
+	}
+</script>
 <div class="masthead">
     <div class="masthead__inner-wrap">
         <div class="masthead__menu">
@@ -42,6 +50,12 @@
                     </svg>
                 </button>
                 {% endif %}
+
+                <label class="switch">
+                    <input id="theme-toggle" type="checkbox" onchange="modeSwitcher()">
+                    <span class="slider round"></span>
+                </label>
+
                 <button class="greedy-nav__toggle hidden" type="button">
                     <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
                     <div class="navicon"></div>
@@ -51,3 +65,34 @@
         </div>
     </div>
 </div>
+
+<script>
+    const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+    var switcher = document.getElementById("theme-toggle");
+    if (theme === "dark") {
+	    switcher.checked = true;
+    } else if (theme === "light") {
+	    switcher.checked = false;
+    } else if  (userPrefers === "dark") {
+	    document.documentElement.setAttribute('data-theme', 'dark');
+	    window.localStorage.setItem('theme', 'dark');
+	    switcher.checked = true;
+    } else {
+	    document.documentElement.setAttribute('data-theme', 'light');
+	    window.localStorage.setItem('theme', 'light');
+	    switcher.checked = false;
+    }
+
+    function modeSwitcher() {
+	    let currentMode = document.documentElement.getAttribute('data-theme');
+
+	    if (currentMode === "dark") {
+	    	document.documentElement.setAttribute('data-theme', 'light');
+	    	window.localStorage.setItem('theme', 'light');
+	    } else {
+	    	document.documentElement.setAttribute('data-theme', 'dark');
+	    	window.localStorage.setItem('theme', 'dark');
+	    }
+    }
+
+</script>

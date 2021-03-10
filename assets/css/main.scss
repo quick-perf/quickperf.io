@@ -10,12 +10,20 @@
 }
 /* Theme overrides */
 
-@import "custom-switcher";
+.search-and-switcher {
+    display: flex;
+    justify-content: space-between;
+
+    .switch {
+        margin-top: 0.35em;
+    }
+}
 
 html[data-theme='dark'] {
     @import "dark-theme";
     background-color: $background-color;
 }
 
+@import "custom-switcher";
 @import "minimal-mistakes";
 

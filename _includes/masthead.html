@@ -1,5 +1,13 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
-
+<script>
+    const theme = localStorage.getItem('theme');
+	if (theme === "dark") {
+		document.documentElement.setAttribute('data-theme', 'dark');
+	} else
+	{
+		document.documentElement.setAttribute('data-theme', 'light');
+	}
+</script>
 <div class="masthead">
     <div class="masthead__inner-wrap">
         <div class="masthead__menu">
@@ -13,35 +21,44 @@
                     {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
                 </a>
 
-                <div>
-                    <ul class="site-title social-icons">
-                        {%- for social in site.data.navigation.social -%}
-                        <li class="btn-{{ social.title | downcase }}">
-                            <a href="{{ social.url }}" target="_blank" title="{{ social.title }}">
-                                <i class="fab fa-fw fa-{{ social.title | downcase }}"></i>
-                            </a>
-                        </li>
-                        {%- endfor -%}
-                    </ul>
-                </div>
+                <ul class="greedy-nav visible-links">
+                    <div>
+                        <ul class="site-title social-icons">
+                            {%- for social in site.data.navigation.social -%}
+                            <li class="btn-{{ social.title | downcase }}">
+                                <a href="{{ social.url }}" target="_blank" title="{{ social.title }}">
+                                    <i class="fab fa-fw fa-{{ social.title | downcase }}"></i>
+                                </a>
+                            </li>
+                            {%- endfor -%}
+                        </ul>
+                    </div>
 
-                <ul class="visible-links">
                     {%- for link in site.data.navigation.main -%}
                     <li class="masthead__menu-item">
                         <a href="{{ link.url | relative_url }}" {% if link.description %} title="{{ link.description }}"
                            {% endif %}>{{ link.title }}</a>
                     </li>
                     {%- endfor -%}
+
+                    <li class="masthead__menu-item">
+                        {% if site.search == true %}
+                        <div class="search-and-switcher">
+                            <button class="search__toggle" type="button">
+                                <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
+                                <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+                                    <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z"
+                                          transform="translate(-.01)"></path>
+                                </svg>
+                            </button>
+                            {% endif %}
+                            <label class="switch">
+                                <input id="theme-toggle" type="checkbox" onchange="modeSwitcher()">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </li>
                 </ul>
-                {% if site.search == true %}
-                <button class="search__toggle" type="button">
-                    <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-                    <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
-                        <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z"
-                              transform="translate(-.01)"></path>
-                    </svg>
-                </button>
-                {% endif %}
                 <button class="greedy-nav__toggle hidden" type="button">
                     <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
                     <div class="navicon"></div>
@@ -51,3 +68,34 @@
         </div>
     </div>
 </div>
+
+<script>
+    const userPrefers = getComputedStyle(document.documentElement).getPropertyValue('content');
+    var switcher = document.getElementById("theme-toggle");
+    if (theme === "dark") {
+	    switcher.checked = true;
+    } else if (theme === "light") {
+	    switcher.checked = false;
+    } else if  (userPrefers === "dark") {
+	    document.documentElement.setAttribute('data-theme', 'dark');
+	    window.localStorage.setItem('theme', 'dark');
+	    switcher.checked = true;
+    } else {
+	    document.documentElement.setAttribute('data-theme', 'light');
+	    window.localStorage.setItem('theme', 'light');
+	    switcher.checked = false;
+    }
+
+    function modeSwitcher() {
+	    let currentMode = document.documentElement.getAttribute('data-theme');
+
+	    if (currentMode === "dark") {
+	    	document.documentElement.setAttribute('data-theme', 'light');
+	    	window.localStorage.setItem('theme', 'light');
+	    } else {
+	    	document.documentElement.setAttribute('data-theme', 'dark');
+	    	window.localStorage.setItem('theme', 'dark');
+	    }
+    }
+
+</script>

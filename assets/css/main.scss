@@ -1,0 +1,29 @@
+---
+# main.scss
+---
+
+@charset "utf-8";
+@media (prefers-color-scheme: dark) {
+    html {
+      content: "dark";
+    }
+}
+/* Theme overrides */
+
+.search-and-switcher {
+    display: flex;
+    justify-content: space-between;
+
+    .switch {
+        margin-top: 0.35em;
+    }
+}
+
+html[data-theme='dark'] {
+    @import "dark-theme";
+    background-color: $background-color;
+}
+
+@import "custom-switcher";
+@import "minimal-mistakes";
+

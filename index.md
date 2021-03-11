@@ -2,7 +2,7 @@
 layout: home
 ---
 
-<img src="assets/images/quickperf.jpeg" />
+<img class="quickperf-img" src="assets/images/quickperf.svg" />
 
 This is the __AMAZING__ website of the __AMAZING__ Quickperf tool !!!
 

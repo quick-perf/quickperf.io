@@ -24,7 +24,7 @@ github_username:  quick-perf
 
 # Site configuration: https://mmistakes.github.io/minimal-mistakes/docs/configuration/
 repository: "quick-perf/quickperf"
-logo: "/assets/images/quickperf-icon.jpeg"
+logo: "/assets/images/lightning bolt.svg"
 search: true
 twitter:
   username: "QuickPerf"

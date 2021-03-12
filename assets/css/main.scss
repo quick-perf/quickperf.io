@@ -3,11 +3,13 @@
 ---
 
 @charset "utf-8";
+
 @media (prefers-color-scheme: dark) {
     html {
       content: "dark";
     }
 }
+
 /* Theme overrides */
 
 .search-and-switcher {
@@ -22,6 +24,10 @@
 html[data-theme='dark'] {
     @import "dark-theme";
     background-color: $background-color;
+
+    .social-icons .fa-github {
+        color: #fff;
+    }
 }
 
 @import "custom-switcher";

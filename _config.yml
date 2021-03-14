@@ -14,9 +14,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: QuickPerf
-email: your-email@example.com
+email: quickperftest@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Quickly find performance bottlenecks inside your application.
+  Quickly evaluate and improve some performance-related properties
 baseurl: "/quickperf.io" # the subpath of your site, e.g. /blog
 url: "https://guiragh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: QuickPerf

@@ -21,6 +21,11 @@
     }
 }
 
+.site-logo img {
+    filter: invert(52%) sepia(7%) saturate(394%) hue-rotate(163deg) brightness(87%) contrast(95%);
+    -webkit-filter: invert(52%) sepia(7%) saturate(394%) hue-rotate(163deg) brightness(87%) contrast(95%);
+}
+
 html[data-theme='dark'] {
     @import "dark-theme";
     background-color: $background-color;
@@ -32,4 +37,3 @@ html[data-theme='dark'] {
 
 @import "custom-switcher";
 @import "minimal-mistakes";
-

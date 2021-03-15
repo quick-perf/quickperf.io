@@ -1,10 +1,6 @@
 main:
-  - title: "Get Started"
-    url: /get-started/
   - title: "Documentation"
     url: https://github.com/quick-perf/doc/wiki/QuickPerf
-  - title: "Community"
-    url: /community/
   - title: "Blog"
     url: /blog/
 

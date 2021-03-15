@@ -26,19 +26,9 @@ $navicon-link-color-hover: mix(#000, $background-color, 30%) ;
     transition: all .4s ease-in-out;
 }
 
-@keyframes blink {
-from {}
-to {
-    filter:invert(1);
+.site-logo img{
+    filter: invert(1);
     -webkit-filter: invert(1);
-    }
-}
-
-.site-logo {
-    animation-name: blink;
-    animation-fill-mode: forwards;
-    animation-duration: .3s;
-    animation-iteration-count: 1;
 }
 
 .ais-search-box .ais-search-box--input {

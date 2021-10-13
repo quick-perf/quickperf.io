@@ -1,9 +1,3 @@
-main:
-  - title: "Documentation"
-    url: https://github.com/quick-perf/doc/wiki/QuickPerf
-  - title: "Blog"
-    url: /blog/
-
 social:
   - title: "Twitter"
     url: https://twitter.com/QuickPerf

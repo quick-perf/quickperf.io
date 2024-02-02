@@ -33,6 +33,10 @@ html[data-theme='dark'] {
     .social-icons .fa-github {
         color: #fff;
     }
+
+    .greedy-nav .visible-links {
+        overflow: visible;
+    }
 }
 
 @import "custom-switcher";
